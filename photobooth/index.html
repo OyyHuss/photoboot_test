@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapBooth — Photo Booth Experience</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ LANDING PAGE ═══════════════════════════════ -->
+  <section id="page-landing" class="page active">
+    <div class="noise-overlay"></div>
+
+    <header class="landing-header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">SnapBooth</span>
+      </div>
+      <div class="header-tag">Est. 2025 · Digital Studio</div>
+    </header>
+
+    <div class="landing-hero">
+      <div class="hero-badge">✦ Open Sesame ✦</div>
+      <h1 class="hero-title">
+        <span class="line-1">Capture</span>
+        <span class="line-2"><em>Your Moment</em></span>
+        <span class="line-3">Forever.</span>
+      </h1>
+      <p class="hero-sub">
+        Photo strip digital bergaya retro modern.<br/>
+        Pilih frame, jepret, unduh — semudah itu.
+      </p>
+      <button class="btn-main" id="btn-start">
+        <span>Mulai Foto</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <div class="landing-strip-preview">
+      <div class="strip-preview-card" style="--r:-6deg"><div class="sp-inner"></div><div class="sp-inner"></div><div class="sp-inner"></div></div>
+      <div class="strip-preview-card" style="--r:2deg"><div class="sp-inner"></div><div class="sp-inner"></div><div class="sp-inner"></div><div class="sp-inner"></div></div>
+      <div class="strip-preview-card" style="--r:-3deg"><div class="sp-inner"></div><div class="sp-inner"></div></div>
+    </div>
+
+    <footer class="landing-footer">
+      <span>2×6" · 4×6" strip format</span>
+      <span class="dot">·</span>
+      <span>Resolusi Tinggi</span>
+      <span class="dot">·</span>
+      <span>Download Instan</span>
+    </footer>
+  </section>
+
+  <!-- ═══════════════════════════════ SELECT COUNT PAGE ═══════════════════════════════ -->
+  <section id="page-select" class="page">
+    <div class="noise-overlay"></div>
+    <button class="btn-back" id="btn-back-select">← Kembali</button>
+
+    <div class="select-container">
+      <div class="select-label">LANGKAH 01 / 03</div>
+      <h2 class="select-title">Mau Ambil<br/><em>Berapa Foto?</em></h2>
+      <p class="select-sub">Setiap foto diambil otomatis dengan jeda 5 detik</p>
+
+      <div class="count-options">
+        <label class="count-card" data-count="2">
+          <input type="radio" name="count" value="2"/>
+          <div class="count-card-inner">
+            <div class="count-strips">
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+            </div>
+            <div class="count-num">2</div>
+            <div class="count-tag">foto</div>
+          </div>
+        </label>
+        <label class="count-card selected" data-count="3">
+          <input type="radio" name="count" value="3" checked/>
+          <div class="count-card-inner">
+            <div class="count-strips">
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+            </div>
+            <div class="count-num">3</div>
+            <div class="count-tag">foto</div>
+            <div class="count-badge">Populer</div>
+          </div>
+        </label>
+        <label class="count-card" data-count="4">
+          <input type="radio" name="count" value="4"/>
+          <div class="count-card-inner">
+            <div class="count-strips">
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+              <div class="cs-img"></div>
+            </div>
+            <div class="count-num">4</div>
+            <div class="count-tag">foto</div>
+          </div>
+        </label>
+      </div>
+
+      <button class="btn-main" id="btn-to-camera">
+        <span>Lanjut ke Kamera</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CAMERA PAGE ═══════════════════════════════ -->
+  <section id="page-camera" class="page">
+    <div class="noise-overlay"></div>
+    <button class="btn-back" id="btn-back-camera">← Kembali</button>
+
+    <div class="camera-layout">
+      <div class="camera-left">
+        <div class="cam-label">LANGKAH 02 / 03</div>
+        <h2 class="cam-title">Bersiap<br/><em>untuk Jepret!</em></h2>
+
+        <div class="cam-status" id="cam-status">
+          <div class="status-dot" id="status-dot"></div>
+          <span id="status-text">Menginisialisasi kamera...</span>
+        </div>
+
+        <div class="cam-progress" id="cam-progress">
+          <div class="progress-strip" id="progress-strip"></div>
+        </div>
+
+        <div class="cam-countdown-big" id="cam-countdown-big"></div>
+        <div class="cam-info" id="cam-info">Tekan tombol untuk memulai sesi foto</div>
+
+        <button class="btn-main" id="btn-capture" disabled>
+          <span id="btn-capture-text">Mulai Sesi Foto</span>
+        </button>
+      </div>
+
+      <div class="camera-right">
+        <div class="viewfinder-wrap">
+          <div class="vf-corner tl"></div>
+          <div class="vf-corner tr"></div>
+          <div class="vf-corner bl"></div>
+          <div class="vf-corner br"></div>
+          <video id="video" autoplay playsinline muted></video>
+          <div class="vf-overlay" id="vf-overlay"></div>
+          <div class="flash-overlay" id="flash-overlay"></div>
+        </div>
+        <div class="thumb-strip" id="thumb-strip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ TEMPLATE PAGE ═══════════════════════════════ -->
+  <section id="page-template" class="page">
+    <div class="noise-overlay"></div>
+    <button class="btn-back" id="btn-back-template">↺ Foto Ulang</button>
+
+    <div class="template-layout">
+      <div class="template-left">
+        <div class="tmpl-label">LANGKAH 03 / 03</div>
+        <h2 class="tmpl-title">Pilih<br/><em>Template!</em></h2>
+        <p class="tmpl-sub">Pilih frame yang kamu suka, lalu download strip fotomu.</p>
+
+        <div class="template-grid" id="template-grid">
+          <!-- Template cards inserted by JS -->
+        </div>
+      </div>
+
+      <div class="template-right">
+        <div class="strip-preview-wrap">
+          <div class="strip-label-top" id="strip-datetime"></div>
+          <canvas id="strip-canvas"></canvas>
+        </div>
+        <div class="strip-actions">
+          <button class="btn-main" id="btn-download">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Download Strip</span>
+          </button>
+          <button class="btn-secondary" id="btn-retake">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>
+            <span>Foto Ulang</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
